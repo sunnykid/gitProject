@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- 1단계 Properties 파일 읽어오기 -->
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:properties/db.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!-- 2단계 DataSource -->
+	<bean id="dataSource"  class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="url" value="${url}"/>
+		<property name="driverClassName" value="${driver}"/>
+		<property name="username" value="${user}"/>
+		<property name="password" value="${pw}"/>
+		
+	</bean>
+	
+	<!-- 3단계 MyBatis 객체인 SqlSessionFactory 생성 -->
+	<bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/> <!-- 접속 정보 -->
+		<property name="configLocation" value="classpath:config/Configuration.xml"/> <!-- MyBatis 환경설정 -->
+	</bean>
+
+	<!-- 4단계 3단계의 객체를 Spring Template에 넣어 줌 -->
+	<bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactoryBean"/>
+	</bean>
+
+	<!-- 사용할 때는 @Autowired를 통해서 Bean을 DI해서 사용 -->	
+		
+</beans>
