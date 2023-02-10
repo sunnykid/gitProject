@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.goodee.edu.mappers.JobsDaoImpl">
+<select id="getJobsDetail" 
+		parameterType="java.lang.String"
+		resultType="JobsVo">
+	SELECT JOB_ID, JOB_TITLE , MIN_SALARY , MAX_SALARY 
+          FROM JOBS j
+          WHERE JOB_ID = #{id}
+</select>      
+<select id="getJobsAll"
+		resultType="JobsVo">    
+             SELECT JOB_ID, JOB_TITLE , MIN_SALARY , MAX_SALARY 
+          FROM JOBS
+</select>           
+<insert id="setJobsInsert"
+		parameterType="JobsVo">
+              INSERT INTO JOBS(JOB_ID, JOB_TITLE, MIN_SALARY,MAX_SALARY)
+         VALUES (#{job_id}, #{job_title}, #{min_salary}, #{max_salary})
+</insert>          
+<update id="setJobsModify"
+		parameterType="java.util.Map">        
+               UPDATE JOBS SET JOB_TITLE  = #{title}
+         WHERE JOB_ID = #{id}
+</update>
+<delete id="setJobsDelete"
+		parameterType="java.lang.String">         
+          DELETE FROM JOBS
+         WHERE JOB_ID = #{id}
+</delete>          
+</mapper>
