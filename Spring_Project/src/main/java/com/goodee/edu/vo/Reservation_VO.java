@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.Setter;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -14,6 +15,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
+@ToString
 public class Reservation_VO {
 	
 	@NonNull
