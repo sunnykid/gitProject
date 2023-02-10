@@ -1,0 +1,36 @@
+{
+	"folders": {},
+	"connections": {
+		"oracle_thin-18639233966-4845ec8e3fb8db97": {
+			"provider": "oracle",
+			"driver": "oracle_thin",
+			"name": "gd1class.iptime.org",
+			"save-password": true,
+			"configuration": {
+				"host": "gd1class.iptime.org",
+				"port": "5000",
+				"database": "XE",
+				"url": "jdbc:oracle:thin:@//gd1class.iptime.org:5000/XE",
+				"configurationType": "MANUAL",
+				"home": "C:\\oraclexe\\app\\oracle\\product\\11.2.0\\server",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-connection-type@": "BASIC",
+					"@dbeaver-sid-service@": "SERVICE"
+				},
+				"auth-model": "oracle_native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}
