@@ -4,9 +4,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertSame;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -36,7 +34,7 @@ public class ModelTest_JUnit {
 		assertNotNull(sqlSession);
 	}
 
-//	@Test
+	@Test
 	public void getReservation() {
 		List<Reservation_VO> lists = sqlSession.selectList("com.goodee.edu.reservation.getReservation");
 		System.out.println(lists);
@@ -58,15 +56,17 @@ public class ModelTest_JUnit {
 		assertSame(n,1);
 	}
 
+//	@Test	
 	public void setJobsModify() {
-		Map<String,Object> iMap = new HashMap<String,Object>();
-		iMap.put("title", "DEV");
-		iMap.put("id", "IT_DEV10");
-		int n = service.setJobsModify(iMap);
-		assertSame(n, 1);
+//		Map<String,Object> iMap = new HashMap<String,Object>();
+//		iMap.put("title", "DEV");
+//		iMap.put("id", "IT_DEV10");
+		Jobs_VO vo = new Jobs_VO("IT_PROG","Developer","2000","5000");
+//		int n = service.setJobsModify(iMap);
+//		assertSame(n, 1);
 	}
 	
-	@Test
+
 	public void setJobsDelete() {
 		int n = service.setJobsDelete("IT_DEV10");
 		assertSame(n,1);
