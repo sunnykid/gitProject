@@ -43,11 +43,17 @@ public class JobsController {
 	//  forword: 새로운 JSP호출  redirect:호출된 페이지로 값을 전송 비동기식처리방식(XmlHttpRequest)
 	// servlet container에서는 redirect 주소에 값을 입력해줌.
 	// spring container에서는 redirect container내의 mapping value 찾음.
-	@PostMapping("/jobModoifyWrite.do")
+	@PostMapping("/jobModifyWrite.do")
 	public String setJobsModify(
 				Jobs_VO vo,
 				@RequestParam Map<String, Object> map){
 				int n = service.setJobsModify(map);
+		return "redirect:/getJobsAll.do";
+	}
+	
+	@GetMapping("/jobsDelete.do")
+	public String setJobDelete(@RequestParam("id") String job_id) {
+		int n = service.setJobsDelete(job_id);
 		return "redirect:/getJobsAll.do";
 	}
 

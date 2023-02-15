@@ -20,7 +20,7 @@
 </insert>          
 <update id="setJobsModify"
 		parameterType="java.util.Map">        
-               UPDATE JOBS SET JOB_TITLE  = #{job_title}
+               UPDATE JOBS SET JOB_TITLE = #{job_title}
          WHERE JOB_ID = #{job_id}
 </update>
 <delete id="setJobsDelete"

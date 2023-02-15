@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form id="frm" name="frm" action="./jobModifyWrite.do method="post">
-	<input type="text" name="id" value=${job.job_id } readonly>
-	<input type="text" name="title" value=${job.job_title }>
+<form id="frm" name="frm" action="./jobModifyWrite.do" method="post">
+	<input type="text" name="job_id" value=${job.job_id} readonly>
+	<input type="text" name="job_title" value=${job.job_title}>
 	<input type="text" value=${job.min_salary } readonly>
 	<input type="text" value=${job.max_salary } readonly>
 	<input type="submit" value="전송">
