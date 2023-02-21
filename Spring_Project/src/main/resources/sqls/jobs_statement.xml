@@ -16,7 +16,13 @@
 <insert id="setJobsInsert"
 		parameterType="JobsVo">
               INSERT INTO JOBS(JOB_ID, JOB_TITLE, MIN_SALARY,MAX_SALARY)
-         VALUES (#{job_id}, #{job_title}, #{min_salary}, #{max_salary})
+         VALUES (#{job_id}, #{job_title}
+         <if test="min_salary != ''">
+         , #{min_salary}
+		 </if>
+         <if test="max_salary != ''">
+         , #{max_salary})
+		 </if>
 </insert>          
 <update id="setJobsModify"
 		parameterType="java.util.Map">        

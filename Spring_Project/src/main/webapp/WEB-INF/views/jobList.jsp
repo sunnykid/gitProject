@@ -18,13 +18,20 @@
 	  console.log("온로드 작동")
 	  document.getElementsByTagName("button")[0].onclick = function(e){
 		  location.href="./jobsWriteForm.do";
+	  }	  
+	  
+	  document.getElementsByTagName("button")[1].onclick = function(e){
+		  location.href="./boardWriteForm.do";
 	  }
+
+	  
   }
   </script>
 </head>
 <body>
 	<div class="container" style="width=970px">
 	<button type="button" class="btn btn-primary btn-block">새글 작성</button>
+	<button type="button" class="btn btn-success btn-block">Board 작성</button>
 	<span>${fn:length(lists)}</span>
 	<div class="table-responsive">
 		<table class="table">

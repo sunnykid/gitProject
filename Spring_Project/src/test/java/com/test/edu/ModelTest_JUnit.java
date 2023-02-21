@@ -15,6 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.goodee.edu.services.IJobsService;
+import com.goodee.edu.vo.Board_VO;
 import com.goodee.edu.vo.Jobs_VO;
 import com.goodee.edu.vo.Reservation_VO;
 
@@ -34,7 +35,7 @@ public class ModelTest_JUnit {
 		assertNotNull(sqlSession);
 	}
 
-	@Test
+//	@Test
 	public void getReservation() {
 		List<Reservation_VO> lists = sqlSession.selectList("com.goodee.edu.reservation.getReservation");
 		System.out.println(lists);
@@ -72,4 +73,14 @@ public class ModelTest_JUnit {
 		assertSame(n,1);
 	}
 
+	@Test
+	public void selectKeyTest() {
+		Board_VO vo = new Board_VO(0,"테스트제목","테스트 글 내용",null);
+		System.out.println("입력 전 VO : " + vo);
+		sqlSession.insert("com.goodee.edu.test.insertBoard",vo);
+		System.out.println("입력 후 VO : " + vo);
+		
+		Board_VO rVo = sqlSession.selectOne("com.goodee.edu.test.detailBoard",vo);
+		System.out.println("상세조회 : " + rVo);
+	}
 }

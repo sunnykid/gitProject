@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.goodee.edu.mappers.BoardDaoImpl">
+
+  <insert id="insertBoard" parameterType="com.goodee.edu.vo.Board_VO">
+  	<selectKey keyProperty="seq" resultType="java.lang.Integer" order="BEFORE">
+  		SELECT BOARD_SEQ.NEXTVAL AS SEQ FROM DUAL
+  	</selectKey>
+		INSERT INTO BOARD
+		(SEQ, TITLE, CONTENT, REGDATE)
+		VALUES(#{seq}, #{title}, #{content}, SYSDATE)
+  </insert>
+  
+  <select id="detailBoard" resultType="com.goodee.edu.vo.Board_VO">
+		SELECT SEQ, TITLE, CONTENT, REGDATE
+		FROM BOARD
+		WHERE SEQ = #{seq}
+  </select>
+  
+  <update id="updateBoard">
+  		UPDATE BOARD
+			SET CONTENT='1'
+  </update>
+
+</mapper>

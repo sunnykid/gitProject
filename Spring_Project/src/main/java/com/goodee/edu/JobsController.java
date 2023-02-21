@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.goodee.edu.services.IJobsService;
 import com.goodee.edu.vo.Jobs_VO;
@@ -64,12 +63,12 @@ public class JobsController {
 	}
 	
 	@PostMapping("jobsWrite.do")
-	@ResponseBody
+	/* @ResponseBody */
 	public String jobsWrite(Jobs_VO vo/* , HttpServletRequest request */) throws Exception {
 		/* request.setCharacterEncoding("utf-8"); */
 		System.out.println("전달받은 jobsWrite"+vo);
-		/* System.out.println("전달받은 jobsWrite"+request.getParameter("job_id")); */
-		
-		return "redirect:/getJobsDetail.do?id=";
+		/*_*/
+		service.setJobsInsert(vo);
+		return "redirect:/getJobsDetail.do?id="+vo.getJob_id();
 	}
 }

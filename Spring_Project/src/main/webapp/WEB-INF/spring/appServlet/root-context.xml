@@ -34,4 +34,10 @@
 
 	<!-- 사용할 때는 @Autowired를 통해서 Bean을 DI해서 사용 -->	
 		
+	<!-- Transaction 처리를 위한 bean -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+	
 </beans>

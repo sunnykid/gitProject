@@ -7,5 +7,6 @@
 	<mappers>
 		<mapper resource="sqls/db_statement.xml"/>
 		<mapper resource="sqls/jobs_statement.xml"/>
+		<mapper resource="sqls/board_statement.xml"/>
 	</mappers>
 </configuration>
