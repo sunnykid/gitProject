@@ -77,10 +77,10 @@ public class ModelTest_JUnit {
 	public void selectKeyTest() {
 		Board_VO vo = new Board_VO(0,"테스트제목","테스트 글 내용",null);
 		System.out.println("입력 전 VO : " + vo);
-		sqlSession.insert("com.goodee.edu.test.insertBoard",vo);
+		sqlSession.insert("com.goodee.edu.mappers.BoardDaoImpl.insertBoard",vo);
 		System.out.println("입력 후 VO : " + vo);
 		
-		Board_VO rVo = sqlSession.selectOne("com.goodee.edu.test.detailBoard",vo);
+		Board_VO rVo = sqlSession.selectOne("com.goodee.edu.mappers.BoardDaoImpl.detailBoard",vo);
 		System.out.println("상세조회 : " + rVo);
 	}
 }
