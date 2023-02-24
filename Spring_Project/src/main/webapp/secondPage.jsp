@@ -7,9 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<a href="./getJobsAll.do">이동하기</a>
-	<br>
-	<a href="./secondPage.jsp">두번째 페이지</a>
+	<h1>두번째 페이지</h1>
 </body>
 </html>
