@@ -5,7 +5,6 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -73,18 +72,17 @@ public class AccessLogFilter extends HttpFilter implements Filter {
 		
 		
 		
-		
-		String lang = req.getParameter("lang");
-		logger.debug("요청된 request값 : " + lang);
-		
-		lang = (lang == null) ? "kor" : lang;
-		
-		if(lang.equals("kor")) {
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/secondPage.jsp");
-			dispatcher.forward(request, response);
-		}else {
-			req.getRequestDispatcher("/Page.jsp").forward(request, response);
-		}
+		/*
+		 * String lang = req.getParameter("lang"); logger.debug("요청된 request값 : " +
+		 * lang);
+		 * 
+		 * lang = (lang == null) ? "kor" : lang;
+		 * 
+		 * if(lang.equals("kor")) { RequestDispatcher dispatcher =
+		 * req.getRequestDispatcher("/secondPage.jsp"); dispatcher.forward(request,
+		 * response); }else { req.getRequestDispatcher("/Page.jsp").forward(request,
+		 * response); }
+		 */
 		
 		chain.doFilter(request, response); //가로채기를 한 후에 처리해주는 Class FilterChain
 	}
